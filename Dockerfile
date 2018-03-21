@@ -3,6 +3,8 @@ FROM  phusion/baseimage
 LABEL maintainer="Devil.Ster.1"
 LABEL version="1.0"
 
+ARG PHP_VER=7.0
+
 ENV DEBIAN_FRONTEND noninteractive
 
 # START Locales Install
@@ -58,8 +60,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # END Install Additional Soft
 
 # START PHP INSTALL
-ARG PHP_VER=7.0
-
 RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:ondrej/php
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
